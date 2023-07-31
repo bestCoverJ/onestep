@@ -3,7 +3,7 @@
     <div class="left-body">
       <el-select
         v-model="currentSearch"
-        class="w-20 m-2"
+        class="search-select w-24"
         placeholder="Select"
         size="large"
       >
@@ -14,7 +14,7 @@
           :value="item.value"
         >
           <div class="flex items-center">
-            <IconBadiu class="h-4 w-4 mx-2" /> {{ item.label }}
+            <IconBaidu class="h-4 w-4 mx-2" /> {{ item.label }}
           </div>
         </el-option>
       </el-select>
@@ -56,7 +56,9 @@
     </div>
     <div class="right-body">
       <el-button type="primary" size="large"
-        ><span class="flex items-center text-xl tracking-wide">搜索</span></el-button
+        ><span class="flex items-center text-xl tracking-wide"
+          >搜索</span
+        ></el-button
       >
     </div>
   </div>
@@ -69,7 +71,7 @@ import { onMounted, reactive, ref } from 'vue'
 import { Search } from '@element-plus/icons-vue'
 import { useSearchStore } from '@/store/search'
 import { getSearchSuggestion } from '@/api/api.js'
-import IconBadiu from '@/assets/icons/IconBaidu.vue'
+import IconBaidu from '@/assets/icons/IconBaidu.vue'
 
 const searchStore = useSearchStore()
 const { popoverisShow, popoverSelectIndex, searchSuggest } =
@@ -165,12 +167,22 @@ const clickSearchSuggest = (sIndex) => {
 
 <style lang="scss">
 .search {
+  .left-body {
+    .search-select {
+      .el-input__wrapper {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        .el-input__inner {
+          @apply text-base;
+        }
+      }
+    }
+  }
   .search-body {
     .search-input {
       .el-input__wrapper {
         @apply text-lg w-96;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
+        border-radius: 0;
       }
     }
   }
