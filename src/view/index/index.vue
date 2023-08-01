@@ -20,16 +20,22 @@
         v-show="isShowStatement"
         class="flex flex-col justify-center text-stone-500 dark:text-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <div>{{ statement.hitokoto }}</div>
+        <div>「 {{ statement.hitokoto }} 」</div>
         <!-- <div class="flex items-center justify-center gap-2">
           <span>{{ statement.from }}</span> -->
         <!-- <span v-show="statement.from_who">{{ statement.from_who }}</span> -->
         <!-- </div> -->
       </div>
       <div class="flex">
-        <el-button text="plain">
-          <el-icon><QuestionFilled /></el-icon>
-        </el-button>
+        <el-tooltip
+          class="box-item"
+          content="2023 OneStep design by CoverJ"
+          placement="top-end"
+        >
+          <el-button text="plain">
+            <el-icon><QuestionFilled /></el-icon>
+          </el-button>
+        </el-tooltip>
 
         <el-popover
           placement="top-end"
