@@ -3,7 +3,7 @@
     <div class="left-body">
       <el-select
         v-model="currentSearch"
-        class="search-select w-24"
+        class="search-select"
         placeholder="Select"
         size="large"
       >
@@ -55,11 +55,11 @@
       </el-popover>
     </div>
     <div class="right-body">
-      <el-button type="primary" size="large"
-        ><span class="flex items-center text-xl tracking-wide"
+      <el-button type="primary" size="large">
+        <span class="flex items-center text-sm md:text-xl tracking-wide"
           >搜索</span
-        ></el-button
-      >
+        >
+      </el-button>
     </div>
   </div>
 </template>
@@ -169,12 +169,15 @@ const clickSearchSuggest = (sIndex) => {
   searchContent.value = searchSuggest.value[sIndex].q
   onSearchSubmit()
 }
+const isMobile = computed(() => {
+  return windowWidth.value <= 640
+})
 const popoverWidth = computed(() => {
   let width
-  if (windowWidth.value >= 640) {
+  if (!isMobile.value) {
     width = '24rem'
   } else {
-    width = '20rem'
+    width = '21rem'
   }
   return width
 })
@@ -184,11 +187,12 @@ const popoverWidth = computed(() => {
 .search {
   .left-body {
     .search-select {
+      @apply w-20 md:w-24;
       .el-input__wrapper {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         .el-input__inner {
-          @apply text-base;
+          @apply text-sm md:text-base;
         }
       }
     }
@@ -196,7 +200,7 @@ const popoverWidth = computed(() => {
   .search-body {
     .search-input {
       .el-input__wrapper {
-        @apply text-lg w-40 md:w-96;
+        @apply text-sm md:text-lg w-48 md:w-96;
         border-radius: 0;
       }
     }
