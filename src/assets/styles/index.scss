@@ -26,6 +26,15 @@ body,
 #app {
   background: url('https://tailwindcss.com/_next/static/media/docs@tinypng.d9e4dcdc.png')
     no-repeat;
+  background-size: cover;
+}
+
+.dark {
+  #app {
+    background: url('https://www.tailwindcss.cn/_next/static/media/hero-dark@90.dba36cdf.jpg')
+      no-repeat;
+    background-size: cover;
+  }
 }
 
 @media (prefers-color-scheme: light) {

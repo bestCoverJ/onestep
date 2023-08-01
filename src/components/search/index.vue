@@ -22,10 +22,10 @@
     <div class="search-body">
       <el-popover
         :visible="popoverisShow"
-        width="24rem"
-        placement="bottom"
         :show-after="200"
         :show-arrow="false"
+        width="24rem"
+        placement="bottom"
         popper-class="custom-popvoer-class"
       >
         <template #reference>
@@ -46,7 +46,7 @@
             v-for="(suggest, sIndex) in searchSuggest"
             :key="sIndex"
             :class="{ 'is-selected': popoverSelectIndex === sIndex }"
-            class="p-1 hover:text-sky-600 hover:bg-stone-50 hover:rounded cursor-pointer"
+            class="p-1 hover:text-sky-600 hover:bg-stone-50 hover:rounded cursor-pointer dark:hover:bg-stone-700"
             @click="clickSearchSuggest(sIndex)"
           >
             {{ suggest.q }}
@@ -73,6 +73,10 @@ import { useSearchStore } from '@/store/search'
 import { getSearchSuggestion } from '@/api/api.js'
 import IconBaidu from '@/assets/icons/IconBaidu.vue'
 
+import { useSettingStore } from '@/store/setting'
+const settingStore = useSettingStore()
+const { isShowSuggest } = storeToRefs(settingStore)
+
 const searchStore = useSearchStore()
 const { popoverisShow, popoverSelectIndex, searchSuggest } =
   storeToRefs(searchStore)
@@ -95,13 +99,13 @@ const options = [
 
 const searchContent = ref('')
 const onSearchChange = (value) => {
-  if (value) {
+  if (isShowSuggest.value && value) {
     getSearchSuggestion({
-      wd: value,
-      prod: 'pc',
+      format: 'json',
+      query: value,
     }).then((res) => {
-      if (res.g) {
-        setSearchSuggest(res.g)
+      if (res.data) {
+        setSearchSuggest(res.data)
         setPopoverisShow(true)
       } else {
         setSearchSuggest([])
@@ -128,7 +132,7 @@ const onSearchBlur = (event) => {
   setPopoverisShow(false)
 }
 const onSearchFocus = (event) => {
-  if (searchSuggest.value.length) {
+  if (isShowSuggest.value && searchSuggest.value.length) {
     setPopoverisShow(true)
   }
 }
