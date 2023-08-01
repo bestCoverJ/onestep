@@ -1,6 +1,6 @@
 <template>
   <div
-    class="index-page flex flex-col justify-between min-h-screen p-12 pt-24 md:pt-48"
+    class="index-page flex flex-col justify-between min-h-screen p-4 md:p-12 pt-24 md:pt-48"
   >
     <!-- <div class="index-page-top flex justify-between">
       <p></p>
@@ -17,12 +17,14 @@
       </div>
       <Search />
     </div>
-    <div class="index-page-bottom flex justify-end relative">
+    <div
+      class="index-page-bottom flex justify-between relative items-end md:justify-end"
+    >
       <div
         v-show="isShowStatement"
         class="flex flex-col justify-center text-stone-500 dark:text-slate-400 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
       >
-        <div>「 {{ statement.hitokoto }} 」</div>
+        <p class="index-page-statement">「 {{ statement.hitokoto }} 」</p>
         <!-- <div class="flex items-center justify-center gap-2">
           <span>{{ statement.from }}</span> -->
         <!-- <span v-show="statement.from_who">{{ statement.from_who }}</span> -->
@@ -106,6 +108,11 @@ onUnmounted(() => {
 .index-page {
   .index-page-search {
     // @apply mb-96;
+  }
+  .index-page-bottom {
+    .index-page-statement {
+      line-height: 32px;
+    }
   }
 }
 </style>

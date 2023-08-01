@@ -1,5 +1,5 @@
 <template>
-  <div class="search flex items-center justify-center">
+  <div class="search flex items-center justify-center mt-8 md:mt-4">
     <div class="left-body">
       <el-select
         v-model="currentSearch"
@@ -32,7 +32,7 @@
           <el-input
             class="search-input"
             v-model.lazy="searchContent"
-            placeholder="我要搜索……"
+            placeholder="我想搜……"
             @input="onSearchChange"
             @focus="onSearchFocus"
             @blur="onSearchBlur"
