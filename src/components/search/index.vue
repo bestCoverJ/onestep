@@ -24,7 +24,7 @@
         :visible="popoverisShow"
         :show-after="200"
         :show-arrow="false"
-        width="24rem"
+        :width="popoverWidth"
         placement="bottom"
         popper-class="custom-popvoer-class"
       >
@@ -32,7 +32,7 @@
           <el-input
             class="search-input"
             v-model.lazy="searchContent"
-            placeholder="请输入要搜索的内容"
+            placeholder="我要搜索……"
             @input="onSearchChange"
             @focus="onSearchFocus"
             @blur="onSearchBlur"
@@ -66,7 +66,9 @@
 
 <script setup>
 import { storeToRefs } from 'pinia'
-import { onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref } from 'vue'
+import { useWindowSize } from '@vueuse/core'
+const { width: windowWidth, height: windowHeight } = useWindowSize()
 
 import { Search } from '@element-plus/icons-vue'
 import { useSearchStore } from '@/store/search'
@@ -167,6 +169,15 @@ const clickSearchSuggest = (sIndex) => {
   searchContent.value = searchSuggest.value[sIndex].q
   onSearchSubmit()
 }
+const popoverWidth = computed(() => {
+  let width
+  if (windowWidth.value >= 640) {
+    width = '24rem'
+  } else {
+    width = '20rem'
+  }
+  return width
+})
 </script>
 
 <style lang="scss">
@@ -185,7 +196,7 @@ const clickSearchSuggest = (sIndex) => {
   .search-body {
     .search-input {
       .el-input__wrapper {
-        @apply text-lg w-96;
+        @apply text-lg w-40 md:w-96;
         border-radius: 0;
       }
     }
@@ -201,7 +212,7 @@ const clickSearchSuggest = (sIndex) => {
 .custom-popvoer-class {
   .search-suggest {
     .is-selected {
-      @apply text-sky-600 bg-stone-100 rounded;
+      @apply text-sky-600 bg-stone-100 rounded dark:bg-slate-700;
     }
   }
 }

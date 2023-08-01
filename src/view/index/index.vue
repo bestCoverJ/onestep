@@ -1,9 +1,11 @@
 <template>
-  <div class="index-page flex flex-col justify-between min-h-screen p-12">
-    <div class="index-page-top flex justify-between">
+  <div
+    class="index-page flex flex-col justify-between min-h-screen p-12 pt-24 md:pt-48"
+  >
+    <!-- <div class="index-page-top flex justify-between">
       <p></p>
       <p></p>
-    </div>
+    </div> -->
     <div class="index-page-search flex flex-col justify-center">
       <div v-show="isShowTime" class="text-center mb-4">
         <span class="text-6xl text-bold text-slate-900 dark:text-white">
@@ -18,7 +20,7 @@
     <div class="index-page-bottom flex justify-end relative">
       <div
         v-show="isShowStatement"
-        class="flex flex-col justify-center text-stone-500 dark:text-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="flex flex-col justify-center text-stone-500 dark:text-slate-400 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
       >
         <div>「 {{ statement.hitokoto }} 」</div>
         <!-- <div class="flex items-center justify-center gap-2">
@@ -103,7 +105,7 @@ onUnmounted(() => {
 <style lang="scss">
 .index-page {
   .index-page-search {
-    @apply mb-96;
+    // @apply mb-96;
   }
 }
 </style>
