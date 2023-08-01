@@ -10,30 +10,29 @@
           {{ currentTime }}
         </span>
         <div class="text-xl mt-2 mb-4">{{ currentDate }}</div>
-        <!-- <div class="text-stone-400">{{ statement.hitokoto }}</div> -->
       </div>
       <Search />
     </div>
-    <div class="index-page-bottom flex justify-between">
-      <p class="text-bold text-lg text-stone-500 tracking-wide">OneStep</p>
-      <div class="flex flex-col justify-center text-stone-500">
+    <div class="index-page-bottom flex justify-end relative">
+      <div class="flex flex-col justify-center text-stone-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div>{{ statement.hitokoto }}</div>
         <!-- <div class="flex items-center justify-center gap-2">
           <span>{{ statement.from }}</span> -->
         <!-- <span v-if="statement.from_who">{{ statement.from_who }}</span> -->
         <!-- </div> -->
       </div>
-      <p class="flex gap-2">
-        <el-link :underline="false">
+      <div class="flex">
+        <el-button text="plain">
           <el-icon><QuestionFilled /></el-icon>
-        </el-link>
-        <el-link :underline="false">
+        </el-button>
+        <el-button text="plain">
           <el-icon><Link /></el-icon>
-        </el-link>
-        <el-link :underline="false">
+        </el-button>
+        <el-button text="plain">
           <el-icon><Setting /></el-icon>
-        </el-link>
-      </p>
+        </el-button>
+        <!-- <p class="text-bold text-lg text-stone-500 tracking-wide">OneStep</p> -->
+      </div>
     </div>
   </div>
 </template>
