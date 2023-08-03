@@ -19,9 +19,47 @@
 }
 
 * {
-  font-family: 'HarmonyOS Sans Regular', 'HarmonyOS Sans SC Regular';
+  font-family:
+    'HarmonyOS Sans Regular',
+    'HarmonyOS Sans SC Regular',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    'Noto Sans',
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji';
 }
 
-h1, h2, h3, h4, h5, h6, .text-bold {
-  font-family: 'HarmonyOS Sans Medium', 'HarmonyOS Sans SC Medium';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-bold {
+  font-family:
+    'HarmonyOS Sans Medium',
+    'HarmonyOS Sans SC Medium',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    'Noto Sans',
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji';
 }
