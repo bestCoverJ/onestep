@@ -1,17 +1,17 @@
-@font-face {
-  font-family: 'HarmonyOS Sans SC Regular';
-  src: url('/harmonyos/cn/docs/assets/font/HarmonyOSHans-Regular.woff2');
-}
+// @font-face {
+//   font-family: 'HarmonyOS Sans SC Regular';
+//   src: url('/harmonyos/cn/docs/assets/font/HarmonyOSHans-Regular.woff2');
+// }
 
-@font-face {
-  font-family: 'HarmonyOS Sans SC Medium';
-  src: url('/harmonyos/cn/docs/assets/font/HarmonyOSHans-Medium.woff2');
-}
+// @font-face {
+//   font-family: 'HarmonyOS Sans SC Medium';
+//   src: url('/harmonyos/cn/docs/assets/font/HarmonyOSHans-Medium.woff2');
+// }
 
-@font-face {
-  font-family: 'HarmonyOS Sans Regular';
-  src: url('../fonts/HarmonyOS_Sans_Regular.ttf');
-}
+// @font-face {
+//   font-family: 'HarmonyOS Sans Regular';
+//   src: url('../fonts/HarmonyOS_Sans_Regular.ttf');
+// }
 
 @font-face {
   font-family: 'HarmonyOS Sans Medium';
@@ -20,8 +20,8 @@
 
 * {
   font-family:
-    'HarmonyOS Sans Regular',
-    'HarmonyOS Sans SC Regular',
+    'HarmonyOS Sans Medium',
+    'HarmonyOS Sans SC Medium',
     ui-sans-serif,
     system-ui,
     -apple-system,
